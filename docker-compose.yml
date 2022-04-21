@@ -65,3 +65,18 @@ services:
       - MYSQL_USER=${DB_USERNAME:-phper}
       - MYSQL_PASSWORD=${DB_PASSWORD:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-secret}
+
+  front_app:
+    build:
+      context: .
+      dockerfile: ./infra/docker/node/Dockerfile
+      args:
+        - TZ=${TX}
+    volumes:
+      - ./nuxt:/var/www/nuxt
+    ports:
+      - ${FRONT_PORT}:3000
+    links:
+      - web
+    depends_on:
+      - web
