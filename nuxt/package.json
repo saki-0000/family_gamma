@@ -11,6 +11,7 @@
     "nuxt": "3.0.0-rc.1"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
     "vuetify": "^v3.0.0-alpha.12",
     "yarn": "^1.22.18"
   }
