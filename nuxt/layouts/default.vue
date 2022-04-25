@@ -1,10 +1,9 @@
 <script setup>
-const route = useRoute();
-const title = ref(route.meta.title);
+const { title } = useTitle();
 
 useHead({
-    title: route.meta.title,
     titleTemplate: "Family_β - %s",
+    title,
 });
 </script>
 

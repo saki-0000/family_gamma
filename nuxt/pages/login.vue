@@ -1,7 +1,6 @@
 <script setup>
-definePageMeta({
-    title: "Login Page",
-});
+const { title, updateTitle } = useTitle();
+updateTitle("Login Page");
 </script>
 
 <template></template>

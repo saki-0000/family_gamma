@@ -1,7 +1,6 @@
 <script setup>
-definePageMeta({
-    title: "Index Page",
-});
+const { title, updateTitle } = useTitle();
+updateTitle("Index Page");
 </script>
 
 <template></template>
