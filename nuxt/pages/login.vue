@@ -5,13 +5,15 @@ const login = () => {
     console.log("ログインしました。");
 };
 const form = {
-    email: "",
-    password: "",
+    email: "ewell.mills@example.org",
+    password: "password",
 };
+const data = await $fetch("/api/hello");
 </script>
 
 <template>
     <v-form ref="form">
+        {{ data }}
         <v-text-field
             v-model="form.password"
             type="password"
