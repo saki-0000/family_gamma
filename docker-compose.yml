@@ -2,6 +2,7 @@ version: "3.9"
 volumes:
   db-store:
   psysh-store:
+  node_modules_volume:
 services:
   app:
     build:
@@ -30,6 +31,8 @@ services:
       - DB_DATABASE=${DB_DATABASE:-laravel}
       - DB_USERNAME=${DB_USERNAME:-phper}
       - DB_PASSWORD=${DB_PASSWORD:-secret}
+      - TZ=${TZ:-Asia/Tokyo}
+      - FRONT_PORT=${FRONT_PORT:-3000}
 
   web:
     build:
@@ -42,7 +45,7 @@ services:
         mode: host
     volumes:
       - type: bind
-        source: ./src
+        source: ./backend
         target: /data
 
   db:
@@ -71,7 +74,7 @@ services:
       context: .
       dockerfile: ./infra/docker/node/Dockerfile
       args:
-        - TZ=${TX}
+        - TZ=${TZ}
     volumes:
       - ./frontend:/var/www/frontend
     ports:

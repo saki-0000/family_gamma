@@ -1,6 +1,6 @@
-FROM node:lts-alpine
-
+FROM node:14.6.0-alpine
 RUN mkdir -p /var/www/frontend
+# timezone
 ARG TZ
 WORKDIR /var/www/frontend
 COPY ./frontend/ /var/www/frontend/
@@ -11,4 +11,5 @@ RUN apk update && \
     yarn install
 
 EXPOSE 3000
+
 ENTRYPOINT ["yarn", "run", "dev"]
