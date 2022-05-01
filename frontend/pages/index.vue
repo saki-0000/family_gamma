@@ -1,22 +1,23 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-        {{ greet }}
-      </v-card>
-    </v-col>
-  </v-row>
+  <div class="container">
+    <p>{{ info.text }}</p>
+    <button @click="onClicked">ボタン</button>
+  </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent, reactive } from "@nuxtjs/composition-api";
 
-export default Vue.extend({
-  async asyncData({ app }): Promise<object> {
-    const greet: string = await app.$axios.$get("/").catch((err) => err);
-    return { greet };
+export default defineComponent({
+  setup() {
+    const info = reactive({
+      text: 1,
+    });
+    const onClicked = () => {
+      info.text++;
+    };
+
+    return { info, onClicked };
   },
 });
 </script>
