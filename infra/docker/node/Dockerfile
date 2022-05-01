@@ -1,4 +1,4 @@
-FROM node:14.6.0-alpine
+FROM node:16.15.0-alpine
 RUN mkdir -p /var/www/frontend
 # timezone
 ARG TZ
@@ -7,7 +7,7 @@ COPY ./frontend/ /var/www/frontend/
 
 RUN apk update && \
     apk upgrade && \
-    apk add --no-cache make gcc g++ python && \
+    apk add --no-cache make gcc g++ python3 && \
     yarn install
 
 EXPOSE 3000

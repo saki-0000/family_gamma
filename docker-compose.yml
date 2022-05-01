@@ -31,8 +31,6 @@ services:
       - DB_DATABASE=${DB_DATABASE:-laravel}
       - DB_USERNAME=${DB_USERNAME:-phper}
       - DB_PASSWORD=${DB_PASSWORD:-secret}
-      - TZ=${TZ:-Asia/Tokyo}
-      - FRONT_PORT=${FRONT_PORT:-3000}
 
   web:
     build:
@@ -74,11 +72,11 @@ services:
       context: .
       dockerfile: ./infra/docker/node/Dockerfile
       args:
-        - TZ=${TZ}
+        - TZ=${TZ:-Asia/Tokyo}
     volumes:
       - ./frontend:/var/www/frontend
     ports:
-      - ${FRONT_PORT}:3000
+      - ${FRONT_PORT:-3000}:3000
     links:
       - web
     depends_on:
