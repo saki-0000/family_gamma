@@ -1,9 +1,9 @@
 FROM node:lts-alpine
 
-RUN mkdir -p /var/www/nuxt
+RUN mkdir -p /var/www/frontend
 ARG TZ
-WORKDIR /var/www/nuxt
-COPY ./nuxt/ /var/www/nuxt/
+WORKDIR /var/www/frontend
+COPY ./frontend/ /var/www/frontend/
 
 RUN apk update && \
     apk upgrade && \

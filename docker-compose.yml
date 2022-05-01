@@ -73,7 +73,7 @@ services:
       args:
         - TZ=${TX}
     volumes:
-      - ./nuxt:/var/www/nuxt
+      - ./frontend:/var/www/frontend
     ports:
       - ${FRONT_PORT}:3000
     links:
