@@ -10,7 +10,7 @@ services:
       target: ${APP_BUILD_TARGET:-development}
     volumes:
       - type: bind
-        source: ./src
+        source: ./backend
         target: /data
       - type: volume
         source: psysh-store
