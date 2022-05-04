@@ -3,6 +3,7 @@
     <p>{{ info.text }}</p>
     <button @click="onClicked">ボタン</button>
     {{ data }}
+    {{ user }}
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import {
   reactive,
   useAsync,
   useContext,
+  useStore,
 } from "@nuxtjs/composition-api";
 
 export default defineComponent({
@@ -23,9 +25,13 @@ export default defineComponent({
       info.text++;
     };
     const { app } = useContext();
-    const data = useAsync(() => app.$axios.$get("/").catch((err) => err));
+    const data = useAsync(() => app.$axios.$get("/api").catch((err) => err));
+    const store = useStore();
 
-    return { info, onClicked, data };
+    // ts対応がまだ
+    const user = store.state.auth.user;
+
+    return { info, onClicked, data, user };
   },
 });
 </script>

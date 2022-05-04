@@ -2,6 +2,7 @@ import colors from "vuetify/es5/util/colors";
 const environment = process.env.NODE_ENV || "development";
 require("dotenv").config();
 export default {
+  ssr: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: "%s - frontend",
@@ -42,7 +43,36 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/proxy",
     "@nuxtjs/dotenv",
+    "@nuxtjs/auth",
   ],
+
+  auth: {
+    redirect: {
+      login: "/login",
+      logout: "/",
+      callback: false,
+      home: "/",
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: "/auth/login",
+            method: "post",
+            propertyName: false,
+          },
+          user: { url: "/api/user", method: "get", propertyName: false },
+          logout: false,
+        },
+        tokenRequired: false,
+        tokenType: false,
+      },
+    },
+    localStorage: false,
+  },
+  router: {
+    middleware: ["auth"],
+  },
 
   proxy: {
     "/api":

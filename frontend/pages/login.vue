@@ -15,16 +15,25 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@nuxtjs/composition-api";
+import { defineComponent, useContext } from "@nuxtjs/composition-api";
 
 export default defineComponent({
   setup() {
-    const login = () => {
-      console.log("ログインしました。");
+    const { app } = useContext();
+    app.$axios.get("/sanctum/csrf-cookie");
+    const login = async () => {
+      try {
+        const response = await app.$auth.loginWith("local", {
+          data: form,
+        });
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
     };
     const form = {
-      email: "ewell.mills@example.org",
-      password: "password",
+      email: "",
+      password: "",
     };
 
     return { form, login };
