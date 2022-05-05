@@ -25,7 +25,7 @@
                 //*********************************
                 // Foreign KEY [ Uncomment if you want to use!! ]
                 //*********************************
-                //$table->foreign("information_type_id")->references("id")->on("information_types");
+                $table->foreign("information_type_id")->references("id")->on("information_types");
 
 
 
