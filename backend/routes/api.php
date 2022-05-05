@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request)
     return $request->user();
 });
 Route::controller(UserController::class)->group(function () {
-    Route::get('/user/{user}', 'show');
+    Route::get('/user', 'show');
 });
 Route::get('/', function () {
     return 'Hello';

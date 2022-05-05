@@ -13,6 +13,7 @@ class UserTest extends TestCase
 
     public function testGetLoginUserInformation(): void
     {
+        /** @var User $user */
         $user = User::factory()->create();
         /** @var InformationType $infomationType */
         $infomationType = InformationType::factory()->create();
@@ -22,7 +23,8 @@ class UserTest extends TestCase
         );
         $user->userinformationDetails()->saveMany($details);
 
-        $result = $this->getJson('api/user/' . $user->id)
+        $this->actingAs($user);
+        $result = $this->getJson('api/user')
             ->assertStatus(200);
 
         $result->assertExactJson($details->toArray());
