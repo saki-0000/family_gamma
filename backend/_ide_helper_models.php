@@ -41,11 +41,15 @@ namespace App\Models{
  *
  * @property int $parent_id
  * @property int|null $child_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|FamilyRelation newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|FamilyRelation newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|FamilyRelation query()
  * @method static \Illuminate\Database\Eloquent\Builder|FamilyRelation whereChildId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FamilyRelation whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FamilyRelation whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FamilyRelation whereUpdatedAt($value)
  */
 	class FamilyRelation extends \Eloquent {}
 }
@@ -114,6 +118,8 @@ namespace App\Models{
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserInformationDetail[] $userInformationDetails
+ * @property-read int|null $user_information_details_count
  * @method static \Database\Factories\UserFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
@@ -134,25 +140,37 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\Userinformation
+ * App\Models\UserInformation
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Userinformation newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Userinformation newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Userinformation query()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserInformation newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserInformation newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserInformation query()
  */
-	class Userinformation extends \Eloquent {}
+	class UserInformation extends \Eloquent {}
 }
 
 namespace App\Models{
 /**
- * App\Models\UserinformationDetail
+ * App\Models\UserInformationDetail
  *
- * @method static \Database\Factories\UserinformationDetailFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|UserinformationDetail newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|UserinformationDetail newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|UserinformationDetail query()
+ * @property int $id
+ * @property string $value
+ * @property int|null $information_type_id
+ * @property string|null $comment
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\UserInformationDetailFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserInformationDetail newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserInformationDetail newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserInformationDetail query()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserInformationDetail whereComment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserInformationDetail whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserInformationDetail whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserInformationDetail whereInformationTypeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserInformationDetail whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserInformationDetail whereValue($value)
  */
-	class UserinformationDetail extends \Eloquent {}
+	class UserInformationDetail extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -162,13 +180,17 @@ namespace App\Models{
  * @property int $id
  * @property string $name
  * @property string|null $comment
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Database\Factories\informationTypeFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|informationType newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|informationType newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|informationType query()
  * @method static \Illuminate\Database\Eloquent\Builder|informationType whereComment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|informationType whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|informationType whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|informationType whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|informationType whereUpdatedAt($value)
  */
 	class informationType extends \Eloquent {}
 }

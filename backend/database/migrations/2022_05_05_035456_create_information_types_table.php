@@ -19,6 +19,7 @@
                 $table->increments('id');
                 $table->string('name');
                 $table->string('comment')->nullable();
+                $table->timestamps();
 
 
 

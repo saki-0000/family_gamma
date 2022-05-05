@@ -5,7 +5,7 @@
     use Illuminate\Database\Schema\Blueprint;
     use Illuminate\Database\Migrations\Migration;
 
-    class CreateUserinformationsTable extends Migration
+    class CreateUserInformationsTable extends Migration
     {
         /**
          * Run the migrations.
@@ -17,10 +17,11 @@
             Schema::create("user_informations", function (Blueprint $table) {
 
                 $table->integer('user_id')->nullable()->unsigned();
-                $table->integer('user_information_id')->nullable()->unsigned();
-                $table->unique(['user_id', 'user_information_id']);
+                $table->integer('user_information_detail_id')->nullable()->unsigned();
+                $table->unique(['user_id', 'user_information_detail_id']);
                 $table->foreign("user_id")->references("id")->on("users");
-                $table->foreign("user_information_id")->references("id")->on("user_information_details");
+                $table->foreign("user_information_detail_id")->references("id")->on("user_information_details");
+                $table->timestamps();
 
 
 

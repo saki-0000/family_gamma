@@ -5,7 +5,7 @@
     use Illuminate\Database\Schema\Blueprint;
     use Illuminate\Database\Migrations\Migration;
 
-    class CreateUserinformationDetailsTable extends Migration
+    class CreateUserInformationDetailsTable extends Migration
     {
         /**
          * Run the migrations.
@@ -20,6 +20,7 @@
                 $table->string('value');
                 $table->integer('information_type_id')->nullable()->unsigned();
                 $table->string('comment')->nullable();
+                $table->timestamps();
 
 
                 //*********************************
