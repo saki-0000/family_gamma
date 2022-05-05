@@ -52,23 +52,6 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\InfomationType
- *
- * @property int $id
- * @property string $name
- * @property string|null $comment
- * @method static \Illuminate\Database\Eloquent\Builder|InfomationType newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|InfomationType newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|InfomationType query()
- * @method static \Illuminate\Database\Eloquent\Builder|InfomationType whereComment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|InfomationType whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|InfomationType whereName($value)
- */
-	class InfomationType extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
  * App\Models\PasswordReset
  *
  * @property string $email
@@ -151,35 +134,42 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\UserInfomation
+ * App\Models\Userinformation
  *
- * @property int|null $user_id
- * @property int|null $user_infomation_id
- * @method static \Illuminate\Database\Eloquent\Builder|UserInfomation newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|UserInfomation newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|UserInfomation query()
- * @method static \Illuminate\Database\Eloquent\Builder|UserInfomation whereUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|UserInfomation whereUserInfomationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Userinformation newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Userinformation newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Userinformation query()
  */
-	class UserInfomation extends \Eloquent {}
+	class Userinformation extends \Eloquent {}
 }
 
 namespace App\Models{
 /**
- * App\Models\UserInfomationDetail
+ * App\Models\UserinformationDetail
+ *
+ * @method static \Database\Factories\UserinformationDetailFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserinformationDetail newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserinformationDetail newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserinformationDetail query()
+ */
+	class UserinformationDetail extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\informationType
  *
  * @property int $id
- * @property string $value
- * @property int|null $infomation_type_id
+ * @property string $name
  * @property string|null $comment
- * @method static \Illuminate\Database\Eloquent\Builder|UserInfomationDetail newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|UserInfomationDetail newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|UserInfomationDetail query()
- * @method static \Illuminate\Database\Eloquent\Builder|UserInfomationDetail whereComment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|UserInfomationDetail whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|UserInfomationDetail whereInfomationTypeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|UserInfomationDetail whereValue($value)
+ * @method static \Database\Factories\informationTypeFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|informationType newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|informationType newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|informationType query()
+ * @method static \Illuminate\Database\Eloquent\Builder|informationType whereComment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|informationType whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|informationType whereName($value)
  */
-	class UserInfomationDetail extends \Eloquent {}
+	class informationType extends \Eloquent {}
 }
 

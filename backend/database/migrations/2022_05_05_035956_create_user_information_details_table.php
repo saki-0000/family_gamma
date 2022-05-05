@@ -5,7 +5,7 @@
     use Illuminate\Database\Schema\Blueprint;
     use Illuminate\Database\Migrations\Migration;
 
-    class CreateUserInfomationDetailsTable extends Migration
+    class CreateUserinformationDetailsTable extends Migration
     {
         /**
          * Run the migrations.
@@ -14,26 +14,26 @@
          */
         public function up()
         {
-            Schema::create("user_infomation_details", function (Blueprint $table) {
+            Schema::create("user_information_details", function (Blueprint $table) {
 
                 $table->increments('id');
                 $table->string('value');
-                $table->integer('infomation_type_id')->nullable()->unsigned();
+                $table->integer('information_type_id')->nullable()->unsigned();
                 $table->string('comment')->nullable();
 
 
                 //*********************************
                 // Foreign KEY [ Uncomment if you want to use!! ]
                 //*********************************
-                //$table->foreign("infomation_type_id")->references("id")->on("infomation_types");
+                //$table->foreign("information_type_id")->references("id")->on("information_types");
 
 
 
                 // ----------------------------------------------------
-                // -- SELECT [user_infomation_details]--
+                // -- SELECT [user_information_details]--
                 // ----------------------------------------------------
-                // $query = DB::table("user_infomation_details")
-                // ->leftJoin("infomation_types","infomation_types.id", "=", "user_infomation_details.infomation_type_id")
+                // $query = DB::table("user_information_details")
+                // ->leftJoin("information_types","information_types.id", "=", "user_information_details.information_type_id")
                 // ->get();
                 // dd($query); //For checking
 
@@ -49,6 +49,6 @@
          */
         public function down()
         {
-            Schema::dropIfExists("user_infomation_details");
+            Schema::dropIfExists("user_information_details");
         }
     }
