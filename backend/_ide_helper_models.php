@@ -182,6 +182,8 @@ namespace App\Models{
  * @property string|null $comment
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserInformationDetail[] $userInformationDetails
+ * @property-read int|null $user_information_details_count
  * @method static \Database\Factories\informationTypeFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|informationType newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|informationType newQuery()
