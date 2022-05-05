@@ -29,6 +29,7 @@ export default defineComponent({
     const store = useStore();
 
     // ts対応がまだ
+    /** @ts-ignore */
     const user = store.state.auth.user;
 
     return { info, onClicked, data, user };
