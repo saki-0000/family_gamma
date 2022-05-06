@@ -5,9 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class informationType extends Model
+class InformationType extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'comment'
+    ];
 
     public function userInformationDetails()
     {
