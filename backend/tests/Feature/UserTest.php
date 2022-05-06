@@ -6,10 +6,12 @@ use App\Models\ProfileType;
 use App\Models\User;
 use App\Models\UserProfileDetail;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class UserTest extends TestCase
 {
+    use RefreshDatabase;
 
     public function testGetLoginUserProfile(): void
     {
