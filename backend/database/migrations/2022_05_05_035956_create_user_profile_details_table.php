@@ -5,7 +5,7 @@
     use Illuminate\Database\Schema\Blueprint;
     use Illuminate\Database\Migrations\Migration;
 
-    class CreateUserInformationDetailsTable extends Migration
+    class CreateUserProfileDetailsTable extends Migration
     {
         /**
          * Run the migrations.
@@ -14,11 +14,11 @@
          */
         public function up()
         {
-            Schema::create("user_information_details", function (Blueprint $table) {
+            Schema::create("user_profile_details", function (Blueprint $table) {
 
                 $table->increments('id');
                 $table->string('value');
-                $table->integer('information_type_id')->nullable()->unsigned();
+                $table->integer('profile_type_id')->nullable()->unsigned();
                 $table->string('comment')->nullable();
                 $table->timestamps();
 
@@ -26,15 +26,15 @@
                 //*********************************
                 // Foreign KEY [ Uncomment if you want to use!! ]
                 //*********************************
-                $table->foreign("information_type_id")->references("id")->on("information_types");
+                $table->foreign("profile_type_id")->references("id")->on("profile_types");
 
 
 
                 // ----------------------------------------------------
-                // -- SELECT [user_information_details]--
+                // -- SELECT [user_profile_details]--
                 // ----------------------------------------------------
-                // $query = DB::table("user_information_details")
-                // ->leftJoin("information_types","information_types.id", "=", "user_information_details.information_type_id")
+                // $query = DB::table("user_profile_details")
+                // ->leftJoin("profile_types","profile_types.id", "=", "user_profile_details.profile_type_id")
                 // ->get();
                 // dd($query); //For checking
 
@@ -50,6 +50,6 @@
          */
         public function down()
         {
-            Schema::dropIfExists("user_information_details");
+            Schema::dropIfExists("user_profile_details");
         }
     }

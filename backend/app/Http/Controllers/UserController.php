@@ -9,6 +9,6 @@ class UserController extends Controller
 {
     public function show(Request $request)
     {
-        return $request->user()->userInformationDetails()->get();
+        return $request->user()->userProfileDetails()->get();
     }
 }

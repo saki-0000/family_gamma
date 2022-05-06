@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\informationType;
+use App\Models\ProfileType;
 use App\Models\User;
-use App\Models\UserInformationDetail;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\UserProfileDetail;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,8 +20,8 @@ class DatabaseSeeder extends Seeder
 
         /** @var User $user */
         $user = User::factory()->create();
-        informationType::factory()->create();
-        $details = UserInformationDetail::factory(3)->make();
-        $user->userinformationDetails()->saveMany($details);
+        ProfileType::factory()->create();
+        $details = UserProfileDetail::factory(3)->make();
+        $user->userprofileDetails()->saveMany($details);
     }
 }

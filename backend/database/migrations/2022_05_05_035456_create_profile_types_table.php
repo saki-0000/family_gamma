@@ -5,7 +5,7 @@
     use Illuminate\Database\Schema\Blueprint;
     use Illuminate\Database\Migrations\Migration;
 
-    class CreateinformationTypesTable extends Migration
+    class CreateProfileTypesTable extends Migration
     {
         /**
          * Run the migrations.
@@ -14,7 +14,7 @@
          */
         public function up()
         {
-            Schema::create("information_types", function (Blueprint $table) {
+            Schema::create("profile_types", function (Blueprint $table) {
 
                 $table->increments('id');
                 $table->string('name');
@@ -24,9 +24,9 @@
 
 
                 // ----------------------------------------------------
-                // -- SELECT [information_types]--
+                // -- SELECT [profile_types]--
                 // ----------------------------------------------------
-                // $query = DB::table("information_types")
+                // $query = DB::table("profile_types")
                 // ->get();
                 // dd($query); //For checking
 
@@ -42,6 +42,6 @@
          */
         public function down()
         {
-            Schema::dropIfExists("information_types");
+            Schema::dropIfExists("profile_types");
         }
     }

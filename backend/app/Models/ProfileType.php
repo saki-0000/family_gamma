@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class InformationType extends Model
+class ProfileType extends Model
 {
     use HasFactory;
 
@@ -14,8 +14,8 @@ class InformationType extends Model
         'comment'
     ];
 
-    public function userInformationDetails()
+    public function userProfileDetails()
     {
-        return $this->hasMany(UserInformationDetail::class);
+        return $this->hasMany(UserProfileDetail::class);
     }
 }
