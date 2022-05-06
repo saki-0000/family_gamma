@@ -67,6 +67,11 @@ services:
       - MYSQL_PASSWORD=${DB_PASSWORD:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-secret}
 
+  db-testing:
+    build:
+      context: .
+      dockerfile: ./infra/docker/mysql/Dockerfile
+
   front_app:
     build:
       context: .
