@@ -9,6 +9,11 @@ class UserProfileDetail extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'value',
+        'profile_type_id',
+        'comment',
+    ];
     protected $appends = [];
     protected $visible = ['id', 'value', 'comment'];
 }

@@ -23,7 +23,6 @@ class ProfileTypeTest extends TestCase
     {
         /** @var ProfileType $profileType */
         $profileType = ProfileType::factory()->create();
-        dump($profileType);
         $this->deleteJson('api/profile/type/' . $profileType->id)
             ->assertSuccessful();
         $this->assertModelMissing($profileType);
