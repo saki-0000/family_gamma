@@ -14,8 +14,18 @@ class ProfileTypeTest extends TestCase
     {
         $params = ProfileType::factory()->definition();
         $this->assertDatabaseMissing('profile_types', $params);
-        $this->postJson('api/infomataion/type', $params)
-            ->assertStatus(201);
+        $this->postJson('api/profile/type', $params)
+            ->assertSuccessful();
         $this->assertDatabaseHas('profile_types', $params);
+    }
+
+    public function testDeleteProfileType(): void
+    {
+        /** @var ProfileType $profileType */
+        $profileType = ProfileType::factory()->create();
+        dump($profileType);
+        $this->deleteJson('api/profile/type/' . $profileType->id)
+            ->assertSuccessful();
+        $this->assertModelMissing($profileType);
     }
 }

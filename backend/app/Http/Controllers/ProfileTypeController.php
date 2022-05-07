@@ -11,4 +11,8 @@ class ProfileTypeController extends Controller
     {
         return ProfileType::create($request->all());
     }
+    public function destroy(ProfileType $profileType)
+    {
+        return $profileType->delete();
+    }
 }

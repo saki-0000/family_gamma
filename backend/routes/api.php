@@ -23,7 +23,8 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/user', 'show');
 });
 Route::controller(ProfileTypeController::class)->group(function () {
-    Route::post('/infomataion/type', 'store');
+    Route::post('/profile/type', 'store');
+    Route::delete('/profile/type/{profileType}', 'destroy');
 });
 Route::get('/', function () {
     return 'Hello';
