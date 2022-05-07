@@ -17,10 +17,10 @@ class UserTest extends TestCase
     {
         /** @var User $user */
         $user = User::factory()->create();
-        /** @var ProfileType $infomationType */
-        $infomationType = ProfileType::factory()->create();
+        /** @var ProfileType $profileType */
+        $profileType = ProfileType::factory()->create();
         /** @var Collection $details */
-        $details = $infomationType->userProfileDetails()->saveMany(
+        $details = $profileType->userProfileDetails()->saveMany(
             UserProfileDetail::factory(3)->make()
         );
         $user->userprofileDetails()->saveMany($details);
