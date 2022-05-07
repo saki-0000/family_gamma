@@ -62,10 +62,16 @@ log-db:
 	docker compose logs db
 log-db-watch:
 	docker compose logs --follow db
+log-front:
+	docker compose logs front_app
+log-front-watch:
+	docker compose logs --follow front_app
 web:
 	docker compose exec web bash
 app:
 	docker compose exec app bash
+front:
+	docker compose exec front_app sh
 migrate:
 	docker compose exec app php artisan migrate
 fresh:
