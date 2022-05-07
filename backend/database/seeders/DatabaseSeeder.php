@@ -2,9 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\ProfileType;
-use App\Models\User;
-use App\Models\UserProfileDetail;
+use Database\Seeders\Dammy\UserProfileSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,11 +15,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-
-        /** @var User $user */
-        $user = User::factory()->create();
-        ProfileType::factory()->create();
-        $details = UserProfileDetail::factory(3)->make();
-        $user->userprofileDetails()->saveMany($details);
+        $this->call([
+            UserProfileSeeder::class,
+        ]);
     }
 }
