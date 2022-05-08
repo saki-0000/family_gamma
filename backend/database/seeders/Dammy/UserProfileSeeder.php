@@ -21,8 +21,9 @@ class UserProfileSeeder extends Seeder
         $user = User::factory()->create();
         /** @var ProfileType $profileType */
         $profileType = ProfileType::factory()->create();
-        $profileType->userProfileDetails()->saveMany(
+        $details = $profileType->userProfileDetails()->saveMany(
             UserProfileDetail::factory(3)->make()
         );
+        $user->userprofileDetails()->saveMany($details);
     }
 }
