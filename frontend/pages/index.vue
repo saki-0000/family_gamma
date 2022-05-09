@@ -1,16 +1,22 @@
 <template>
   <div class="container">
-    <v-autocomplete
-      v-model="addItems"
-      :items="excludeDuplicateProfileType()"
-      item-text="name"
-      item-value="name"
-      chips
-      small-chips
-      label="追加する項目"
-      multiple
-    ></v-autocomplete>
-    <v-btn @click="addItem()">追加</v-btn>
+    <v-row no-gutters>
+      <v-cols cols="auto">
+        <v-autocomplete
+          v-model="addItems"
+          :items="excludeDuplicateProfileType()"
+          item-text="name"
+          item-value="name"
+          chips
+          small-chips
+          label="追加する項目"
+          multiple
+        ></v-autocomplete>
+      </v-cols>
+      <v-cols cols="auto">
+        <v-btn @click="addItem()">追加</v-btn>
+      </v-cols>
+    </v-row>
     <div v-for="item in userProfiles" :key="item.id">
       <v-text-field
         v-model="item.value"
