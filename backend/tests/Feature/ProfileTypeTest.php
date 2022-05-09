@@ -10,6 +10,14 @@ class ProfileTypeTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function testIndexProfileType(): void
+    {
+        $profileTypes = ProfileType::factory(3)->create();
+        $result = $this->getJson('api/profile/type')
+            ->assertSuccessful();
+        $result->assertExactJson($profileTypes->toArray());
+    }
+
     public function testCreateProfileType(): void
     {
         $params = ProfileType::factory()->definition();
