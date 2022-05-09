@@ -19,11 +19,13 @@ class UserProfileSeeder extends Seeder
     {
         /** @var User $user */
         $user = User::factory()->create();
-        /** @var ProfileType $profileType */
-        $profileType = ProfileType::factory()->create();
-        $details = $profileType->userProfileDetails()->saveMany(
-            UserProfileDetail::factory(3)->make()
-        );
-        $user->userprofileDetails()->saveMany($details);
+        for ($i = 0; $i < 3; $i++) {
+            /** @var ProfileType $profileType */
+            $profileType = ProfileType::factory()->create();
+            $detail = $profileType->userProfileDetails()->save(
+                UserProfileDetail::factory()->make()
+            );
+            $user->userprofileDetails()->save($detail);
+        }
     }
 }
