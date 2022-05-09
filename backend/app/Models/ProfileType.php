@@ -13,6 +13,7 @@ class ProfileType extends Model
         'name',
         'comment'
     ];
+    protected $visible = ['id', 'name', 'comment'];
 
     public function userProfileDetails()
     {
