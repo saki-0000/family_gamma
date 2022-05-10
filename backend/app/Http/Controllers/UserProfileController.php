@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\UserProfileDetail;
 use Illuminate\Http\Request;
 
-class UserProfileDetailController extends Controller
+class UserProfileController extends Controller
 {
     public function store(Request $request)
     {

@@ -8,11 +8,11 @@ use App\Models\UserProfileDetail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class UserProfileDetailTest extends TestCase
+class UserProfileTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testCreateUserProfileDetail(): void
+    public function testCreateUserProfile(): void
     {
         /** @var User $user */
         $user = User::factory()->create();
@@ -25,7 +25,7 @@ class UserProfileDetailTest extends TestCase
         $this->assertDatabaseHas('user_profile_details', $params);
     }
 
-    public function testDeleteUserProfileDetail(): void
+    public function testDeleteUserProfile(): void
     {
         ProfileType::factory()->create();
         /** @var UserProfileDetail $userProfileDetail */

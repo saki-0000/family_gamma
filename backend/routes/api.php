@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileTypeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\UserProfileDetailController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +28,7 @@ Route::controller(ProfileTypeController::class)->group(function () {
     Route::post('/profile/type', 'store');
     Route::delete('/profile/type/{profileType}', 'destroy');
 });
-Route::controller(UserProfileDetailController::class)->group(function () {
+Route::controller(UserProfileController::class)->group(function () {
     Route::post('/user/profile', 'store');
     Route::delete('/user/profile/{userProfileDetail}', 'destroy');
 });
