@@ -18,12 +18,28 @@
       </v-cols>
     </v-row>
     <div v-for="item in userProfiles" :key="item.id">
-      <v-text-field
-        v-model="item.value"
-        :counter="255"
-        :label="item.profile_type_name"
-        required
-      ></v-text-field>
+      <v-row no-gutters>
+        <v-text-field
+          v-model="item.value"
+          :counter="255"
+          :label="item.profile_type_name"
+          required
+        ></v-text-field>
+        <v-cols cols="auto">
+          <v-fab-transition>
+            <v-btn
+              :key="test"
+              @click="onClick"
+              :fab="!test"
+              :small="!test"
+              :color="!test ? '' : 'error'"
+            >
+              <v-icon v-show="!test"> mdi-minus </v-icon>
+              <div v-show="test">削除</div>
+            </v-btn>
+          </v-fab-transition>
+        </v-cols>
+      </v-row>
     </div>
   </div>
 </template>
@@ -82,6 +98,10 @@ export default defineComponent({
     const profileTypes = useAsync<ProfileType[]>(() =>
       $axios.$get<ProfileType[]>("api/profile/type").catch((err) => err)
     );
+    const test = ref(false);
+    const onClick = () => {
+      test.value = !test.value;
+    };
 
     return {
       userProfiles,
@@ -89,6 +109,8 @@ export default defineComponent({
       excludeDuplicateProfileType,
       addItems,
       addItem,
+      test,
+      onClick,
     };
   },
 });
